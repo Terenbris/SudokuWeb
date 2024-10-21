@@ -1,0 +1,116 @@
+import random
+import time
+import math
+import datetime
+
+numbers = [1,2,3,4,5,6,7,8,9]
+board = [[0 for col in range(9)] for row in range(9)]
+finalBoard = [[0 for col in range(9)] for row in range(9)]
+easyBoards = []
+mediumBoards = []
+hardBoards = []
+allBoards = []
+
+def fillTable():
+    global board
+    time.sleep(2)
+    random.seed(int(datetime.datetime.utcnow().timestamp()))
+    board = [[0 for col in range(9)] for row in range(9)]
+    tries = 0
+    for z in range(9):
+        rep = True
+        while rep:
+            rep = fillRow(z)
+            if tries > 75:
+                print("retry")
+                tries = 0
+                random.seed(int(datetime.datetime.utcnow().timestamp()))
+                board = [[0 for col in range(9)] for row in range(9)]
+            tries += 1
+
+def fillRow(row):
+    global board
+    for j in range(9):
+        board[row][j] = 0
+    num = numbers[:]
+    random.shuffle(num)
+    uhoh = 0
+    for col in range(9):
+        #print(board)
+        for z in num:
+            if colCheck(z, col) and quadrantCheck(col,row,z):
+                board[row][col] = z
+                num.remove(z)
+                break
+    for i in board[row]:
+        if i == 0:
+            uhoh += 1
+    return uhoh > 0
+
+def quadrantCheck(col, row, num):
+    x = math.floor(col/3)
+    y = math.floor(row/3)
+    errCount = 0
+    for i in range(3):
+        for j in range(3):
+            if board[(y*3)+j][(x*3)+i] == num:
+                errCount += 1
+    return errCount == 0
+                
+
+def colCheck(num, col):
+    errCount = 0
+    for z in range(9):
+        if board[z][col] == num:
+            errCount += 1
+    return errCount == 0
+
+def createPuzzle(initCell = 25):
+    global finalBoard
+    finalBoard = [[0 for col in range(9)] for row in range(9)]
+    initCellCor = [[9 for col in range(2)] for row in range(initCell)]
+    intToStr = ["a","b","c","d","e","f","g","h","i"]
+    for i in range(len(initCellCor)):
+        rep = True
+        while rep:
+            errCount = 0
+            x = random.randint(0,8)
+            y = random.randint(0,8)
+            for cell in initCellCor:
+                if cell == [x,y]:
+                    errCount += 1
+            if errCount == 0:
+                initCellCor[i] = [x,y]
+                rep = False
+    for i in initCellCor:
+        finalBoard[i[0]][i[1]] = intToStr[board[i[0]][i[1]]-1]
+    print("Board")
+
+def compilePuzzles():
+    for i in range(10):
+        fillTable()
+        createPuzzle(25)
+        easyBoards.append(finalBoard)
+    for i in range(10):
+        fillTable()
+        createPuzzle(19)
+        mediumBoards.append(finalBoard)
+    for i in range(10):
+        fillTable()
+        createPuzzle(14)
+        hardBoards.append(finalBoard)
+    allBoards.append(easyBoards)
+    allBoards.append(mediumBoards)
+    allBoards.append(hardBoards)
+
+def writeFile():
+    f = open("boards.txt", "w")
+    f.write(str(allBoards))
+    f.close()
+
+def main():
+    compilePuzzles()
+    writeFile()
+    print(finalBoard)
+    
+main()
