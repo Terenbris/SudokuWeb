@@ -58,6 +58,12 @@
                         if ((cellRow + 1) % 3 == 0) {
                             border += "border-Bottom-style: Solid;";
                         }
+                        if (cellColumn == 0) {
+                            border += "border-left-style: Solid;";
+                        }
+                        if (cellRow == 0) {
+                            border += "border-top-style: Solid;";
+                        }
                         board += "<td style=\"border-width: 8px;" + border + "\"><input onFocus=\"window.scrollTo(0, 0);\" style=\"" + background + "\" id=\"cell." + cellRow +"."+ cellColumn + "\" inputmode=\"numeric\" pattern=\"[0-9]*\" value=\"" + cell + "\"" + readonly + "/></td>\n";
                         cellColumn++;
                     }
