@@ -83,10 +83,10 @@ def createPuzzle(initCell = 25):
     
     for i in initCellCor:
         #print(str(i) + str(initCellCor.index(i)+1))
-        #finalBoard[i[0]][i[1]] = intToStr[board[i[0]][i[1]]-1]
-        finalBoard[i[0]][i[1]] = board[i[0]][i[1]]
+        finalBoard[i[0]][i[1]] = intToStr[board[i[0]][i[1]]-1]
+        #finalBoard[i[0]][i[1]] = board[i[0]][i[1]]
     
-    print("Board" + str(board))
+    print("Board" + str(finalBoard))
 
 def compilePuzzles():
     for i in range(10):
