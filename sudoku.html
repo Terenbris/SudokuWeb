@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html title="Sudoku">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width;initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"
+    />
+    <link rel="stylesheet" href="web.css" />
+    <script src="javascript.js"></script>
+  </head>
+  <body onload="gen();">
+    <table id="board" cellspacing="0"></table>
+    <div id="controls">
+      <button id="submit" onclick="checkResult();">Submit</button
+      ><button onclick="gen();">New Puzzle</button>
+      <br />
+      <select id="difficulty">
+        <option value="MoreEasy">More Easy</option>
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+      </select>
+      <button onclick="document.location='index.html'">Back</button>
+    </div>
+  </body>
+</html>

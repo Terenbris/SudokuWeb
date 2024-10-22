@@ -1,0 +1,9 @@
+.grid-container {
+    display: grid;
+    gap: 50px;
+  }
+
+  .grid-item1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }

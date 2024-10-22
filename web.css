@@ -10,6 +10,11 @@ input {
     border: 3px solid;
 }
 
+img {
+    width: 5vmin;
+    height: 5vmin;
+}
+
 table {
     border-collapse: collapse;
     border-spacing: 0px;
