@@ -7,6 +7,7 @@ import json
 numbers = [1,2,3,4,5,6,7,8,9]
 board = [[0 for col in range(9)] for row in range(9)]
 finalBoard = [[0 for col in range(9)] for row in range(9)]
+moreEasyBoards = []
 easyBoards = []
 mediumBoards = []
 hardBoards = []
@@ -91,6 +92,10 @@ def createPuzzle(initCell = 25):
 def compilePuzzles():
     for i in range(10):
         fillTable()
+        createPuzzle(35)
+        moreEasyBoards.append(finalBoard)
+    for i in range(10):
+        fillTable()
         createPuzzle(25)
         easyBoards.append(finalBoard)
     for i in range(10):
@@ -101,6 +106,7 @@ def compilePuzzles():
         fillTable()
         createPuzzle(14)
         hardBoards.append(finalBoard)
+    allBoards.append(moreEasyBoards)
     allBoards.append(easyBoards)
     allBoards.append(mediumBoards)
     allBoards.append(hardBoards)
