@@ -2,12 +2,32 @@
 <html>
   <head>
     <script src="solitaireJS.js"></script>
+    <link rel="stylesheet" href="solitaire.css">
   </head>
   <body>
-
-    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    
-    <img id="drag1" src="sudoku.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+    <div class="row">
+      <div class="column">
+        <div id="div1" onclick="Select('div1');"><img src="sudoku.png"></div>
+      </div>
+      <div class="column">
+        <div id="div2" onclick="Select('div2');"><img src="sudoku.png"></div>
+      </div>
+      <div class="column">
+        <div id="div3" onclick="Select('div3');"><img src="sudoku.png"></div>
+      </div>
+      <div class="column">
+        <div id="div4" onclick="Select('div4');"><img src="sudoku.png"></div>
+      </div>
+      <div class="column">
+        <div id="div5" onclick="Select('div5');"><img src="sudoku.png"></div>
+      </div>
+      <div class="column">
+        <div id="div6" onclick="Select('div6');"><img src="sudoku.png"></div>
+      </div>
+      <div class="column">
+        <div id="div7" onclick="Select('div7');"><img src="sudoku.png"></div>
+      </div>
+    </div>
     
     </body>
 </html>
