@@ -4,8 +4,18 @@
 
 .column {
   flex: 50%;
+  max-width: 5cm;
 }
 
 img {
   width: 100%;
+}
+
+.boardCard {
+  margin-top: -50%;
+}
+
+.base {
+  box-shadow: -5px -5px gold;
+  margin-bottom: -50%;
 }
