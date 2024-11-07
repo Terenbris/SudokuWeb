@@ -17,5 +17,6 @@ img {
 
 .base {
   box-shadow: -5px -5px gold;
-  margin-bottom: -50%;
+  margin-bottom: -100%;
+  z-index: -1;
 }

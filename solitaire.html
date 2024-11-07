@@ -2,39 +2,49 @@
 <html>
   <head>
     <script src="solitaireJS.js"></script>
-    <link rel="stylesheet" href="solitaire.css">
+    <link rel="stylesheet" href="solitaire.css" />
   </head>
-  <body>
+  <body onload="init();">
     <div class="row">
-      <div class="column">
-        <div id="base1" class="base" onclick="Select('base1');"><img src="sudoku.png"></div>
-        <div id="div1" class="boardCard" onclick="Select('div1');"><img src="sudoku.png"></div>
+      <div class="column" id="col1">
+        <div id="base1" class="base" onclick="select('base1');">
+          <img src="./PNG-cards-1.3/red_joker.png" />
+        </div>
+        <!-- 
+        <div id="div1" class="boardCard" onclick="Select('div1');">
+          <img src="sudoku.png" />
+        </div> -->
       </div>
-      <div class="column">
-        <div id="base2" class="base" onclick="Select('base2');"><img src="sudoku.png"></div>
-        <div id="div2" class="boardCard" onclick="Select('div2');"><img src="sudoku.png"></div>
+      <div class="column" id="col2">
+        <div id="base2" class="base" onclick="select('base2');">
+          <img src="./PNG-cards-1.3/red_joker.png" />
+        </div>
       </div>
-      <div class="column">
-        <div id="base3" class="base" onclick="Select('base3');"><img src="sudoku.png"></div>
-        <div id="div3" class="boardCard" onclick="Select('div3');"><img src="sudoku.png"></div>
+      <div class="column" id="col3">
+        <div id="base3" class="base" onclick="select('base3');">
+          <img src="./PNG-cards-1.3/red_joker.png" />
+        </div>
       </div>
-      <div class="column">
-        <div id="base4" class="base" onclick="Select('base4');"><img src="sudoku.png"></div>
-        <div id="div4" class="boardCard" onclick="Select('div4');"><img src="sudoku.png"></div>
+      <div class="column" id="col4">
+        <div id="base4" class="base" onclick="select('base4');">
+          <img src="./PNG-cards-1.3/red_joker.png" />
+        </div>
       </div>
-      <div class="column">
-        <div id="base5" class="base" onclick="Select('base5');"><img src="sudoku.png"></div>
-        <div id="div5" class="boardCard" onclick="Select('div5');"><img src="sudoku.png"></div>
+      <div class="column" id="col5">
+        <div id="base5" class="base" onclick="select('base5');">
+          <img src="./PNG-cards-1.3/red_joker.png" />
+        </div>
       </div>
-      <div class="column">
-        <div id="base6" class="base" onclick="Select('base6');"><img src="sudoku.png"></div>
-        <div id="div6" class="boardCard" onclick="Select('div6');"><img src="sudoku.png"></div>
+      <div class="column" id="col6">
+        <div id="base6" class="base" onclick="select('base6');">
+          <img src="./PNG-cards-1.3/red_joker.png" />
+        </div>
       </div>
-      <div class="column">
-        <div id="base7" class="base" onclick="Select('base7');"><img src="sudoku.png"></div>
-        <div id="div7" class="boardCard" onclick="Select('div7');"><img src="sudoku.png"></div>
+      <div class="column" id="col7">
+        <div id="base7" class="base" onclick="select('base7');">
+          <img src="./PNG-cards-1.3/red_joker.png" />
+        </div>
       </div>
     </div>
-    
-    </body>
+  </body>
 </html>
