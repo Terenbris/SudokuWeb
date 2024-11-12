@@ -18,5 +18,8 @@ img {
 .base {
   box-shadow: -5px -5px gold;
   margin-bottom: -100%;
-  z-index: -1;
+}
+
+.ace {
+  opacity: 0.5;
 }

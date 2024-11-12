@@ -26,10 +26,16 @@ function second(id) {
         console.log("Failure");
         return true;
     }
+    prevSib = document.getElementById(firstVar).previousSibling;
+    console.log(document.getElementById(firstVar).previousSibling);
+    //reveal card once card on top removed
+    if (prevSib.id != undefined && prevSib.className != "base") {
+        prevSib.innerHTML = "<img src='./PNG-cards-1.3/"+prevSib.id+".png'></img>"
+    }
     prnt = document.getElementById(id).parentNode;
     insertChild = document.getElementById(firstVar).nextSibling;
-    while (document.getElementById(firstVar).nextSibling != null) {
-        prnt.appendChild(document.getElementById(firstVar).nextSibling);
+    while (insertChild != null) {
+        prnt.appendChild(insertChild);
     }
     prnt.insertBefore(document.getElementById(firstVar), insertChild);
     firstVar = "";
@@ -39,14 +45,26 @@ function second(id) {
 function init() {
     createDeck();
     load();
-    document.getElementById("testVal").innerHTML = deck;
+    //document.getElementById("testVal").innerHTML = deck;
 }
 
 function load() {
-    cardDeck = shuffle(deck);
     for (i = 1; i < 8; i++) {
-        card = "<div class='boardCard' id='" + cardDeck[i] + "' onclick='select(\""+cardDeck[i]+"\")'><img src='./PNG-cards-1.3/"+cardDeck[i]+".png'></div>";
-        document.getElementById("col"+i).innerHTML += card;
+        base = "<div class='base' id='base" + i + "' onclick='select(\"base"+i+"\")'><img src='./PNG-cards-1.3/black_joker.png'></div>";
+            document.getElementById("col"+(i)).innerHTML += base;
+    }
+    cardDeck = shuffle(deck);
+    for (j = 0; j < 7; j++) {
+        for (i = j; i < 7; i++) {
+            img = cardDeck[0];
+            if (i != j) {
+                img = "black_joker";
+            }
+            card = "<div class='boardCard' id='" + cardDeck[0] + "' onclick='select(\""+cardDeck[0]+"\")'><img src='./PNG-cards-1.3/"+img+".png'></div>";
+            document.getElementById("col"+(i+1)).innerHTML += card;
+            cardDeck.shift();
+        }
+        console.log(cardDeck);
     }
 }
 
