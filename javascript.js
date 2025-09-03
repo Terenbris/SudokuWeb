@@ -526,7 +526,7 @@ const templates = [
       finalTemplate.reverse();
     }
 
-    const strToint = shuffle(["a", "b", "c", "d", "e", "f", "g", "h", "i"]);
+    const strToint = shuffle(["A", "B", "C", "D", "E", "F", "G", "H", "I"]);
 
     board = "";
     cellRow = 0;
@@ -540,7 +540,7 @@ const templates = [
         if (cell == 0) {
           cell = "";
         } else {
-          cell = strToint.indexOf(cell.ToLowerCase()) + 1;
+          cell = strToint.indexOf(cell) + 1;
           readonly = "readonly";
           background = "background-color: lightgrey;";
         }
