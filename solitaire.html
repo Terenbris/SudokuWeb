@@ -1,50 +1,52 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="solitaireJS.js"></script>
-    <link rel="stylesheet" href="solitaire.css" />
-  </head>
-  <body onload="init();">
-    <div class="row">
-      <div class="column" id="col1">
-        <div id="ace1" class="mainRow ace">
-          <img src="./PNG-cards-1.3/red_joker.png" />
-        </div>
-        <!-- 
-        <div id="div1" class="boardCard" onclick="Select('div1');">
-          <img src="sudoku.png" />
-        </div> -->
-      </div>
-      <div class="column" id="col2">
-        <div id="ace1" class="mainRow ace">
-          <img src="./PNG-cards-1.3/red_joker.png" />
-        </div>
-      </div>
-      <div class="column" id="col3">
-        <div id="ace1" class="mainRow ace">
-          <img src="./PNG-cards-1.3/red_joker.png" />
-        </div>
-      </div>
-      <div class="column" id="col4">
-        <div id="ace1" class="mainRow ace">
-          <img src="./PNG-cards-1.3/red_joker.png" />
-        </div>
-      </div>
-      <div class="column" id="col5">
-        <div id="ace1" class="mainRow">
-          <img src="./PNG-cards-1.3/red_joker.png" />
-        </div>
-      </div>
-      <div class="column" id="col6">
-        <div id="ace1" class="mainRow">
-          <img src="./PNG-cards-1.3/red_joker.png" />
-        </div>
-      </div>
-      <div class="column" id="col7">
-        <div id="ace1" class="mainRow">
-          <img src="./PNG-cards-1.3/red_joker.png" />
-        </div>
-      </div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Solitaire Suite — Klondike • FreeCell • Pyramid</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="solitaire.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Solitaire Suite</div>
+
+    <div class="controls">
+      <label class="select-wrap" aria-label="Choose a game">
+        <span>Game</span>
+        <select id="gameSelect">
+          <option value="klondike" selected>Klondike</option>
+          <option value="freecell">FreeCell</option>
+          <option value="pyramid">Pyramid</option>
+        </select>
+      </label>
+
+      <button id="newBtn" class="btn" title="New deal (shuffle)">New Game</button>
+      <button id="undoBtn" class="btn" title="Undo last move">Undo</button>
+      <button id="autoBtn" class="btn" title="Auto-move to foundations (Klondike/FreeCell)">Auto</button>
+      <button id="rulesBtn" class="btn" title="See rules">Rules</button>
     </div>
-  </body>
+
+    <div class="stats">
+      <div><strong>Time</strong> <span id="time">00:00</span></div>
+      <div><strong>Moves</strong> <span id="moves">0</span></div>
+    </div>
+  </header>
+
+  <main id="board" class="board" aria-live="polite"></main>
+
+  <footer class="footnotes">
+    <span id="message"></span>
+  </footer>
+
+  <!-- Rules modal -->
+  <dialog id="rulesDialog">
+    <h2 id="rulesTitle">Rules</h2>
+    <div id="rulesContent" class="rules"></div>
+    <form method="dialog" class="dialog-actions">
+      <button class="btn">Close</button>
+    </form>
+  </dialog>
+
+  <script src="solitaire.js"></script>
+</body>
 </html>
